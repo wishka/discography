@@ -1,5 +1,6 @@
 This is a first little Test app of GhaphQL
 The app has Artists and they songs.
+To use app start server and go to http://localhost:3000/graphiql
 1.You can see all Artists and songs:
 query {
   allArtists{
