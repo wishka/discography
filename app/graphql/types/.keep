@@ -1,0 +1,53 @@
+mutation {
+  createArtist(input: {
+    firstName: "Katty"
+    lastName: "Parry"
+    email: "katty.parry@example.com"
+  }
+  ) {
+    id
+  }
+}
+
+mutation {
+  updateArtist(
+    input: {id: 1,
+    firstName: "Katye",
+    lastName: "Parry",
+    email: "katty_katty@mail.com"}
+  ) {
+    id
+    firstName
+    email
+  }
+}
+
+mutation {
+  deleteArtist(
+    input: {id: 3}
+  ) {
+    id
+  }
+}
+
+mutation {
+  createItem (input: {
+    title: "Roar",
+    artistId: 2,
+    description: "Roar of jungle"
+  })
+  {
+    id
+    title
+  }
+}
+
+
+query {
+  allArtists{
+    id
+    firstName
+    lastName
+    email
+  }
+}

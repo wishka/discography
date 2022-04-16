@@ -15,5 +15,15 @@ module Types
       def items
         Item.all
       end
+
+      field :allArtists,
+        [Types::ArtistType],
+        null: false,
+        description: "Return a list of artists"
+
+
+      def allArtists
+        Artist.all
+      end
   end
 end

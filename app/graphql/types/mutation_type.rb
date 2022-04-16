@@ -1,10 +1,13 @@
 module Types
   class MutationType < Types::BaseObject
-    # TODO: remove me
-    field :test_field, String, null: false,
-      description: "An example field added by the generator"
-    def test_field
-      "Hello World"
-    end
+    graphql_name 'Mutations'
+
+    field :create_artist, mutation: Mutations::CreateArtist
+    field :update_artist, mutation: Mutations::UpdateArtist
+    field :delete_artist, mutation: Mutations::DeleteArtist
+
+    field :create_item, mutation: Mutations::CreateItem
+    field :update_item, mutation: Mutations::UpdateItem
+    field :delete_item, mutation: Mutations::DeleteItem
   end
 end

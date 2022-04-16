@@ -1,24 +1,87 @@
-# README
+This is a first little Test app of GhaphQL
+The app has Artists and they songs.
+1.You can see all Artists and songs:
+query {
+  allArtists{
+    id
+    firstName
+    lastName
+    email
+  } items {
+    id
+    title
+    description
+    artist{
+      firstName
+    }
+  }
+}
+2.You can add new artist or item by use this code:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+mutation {
+  createArtist(input: {
+    firstName: "FirstName"
+    lastName: "LastName"
+    email: "email"
+  }
+  ) {
+    id
+  }
+}
 
-Things you may want to cover:
+mutation {
+  createItem (input: {
+    title: "Title",
+    artistId: id,
+    description: "description"
+  })
+  {
+    id
+    title
+  }
+}
 
-* Ruby version
+3.Can update artist or item with attributes you need:
+mutation {
+  updateArtist(
+    input: {id: id,
+    firstName: "FirstName",
+    lastName: "LastName",
+    email: "email"}
+  ) {
+    id
+    firstName
+    email
+  }
+}
 
-* System dependencies
+mutation {
+  updateItem(
+    input: {id: id,
+    title: "title",
+    description: "description",
+    artistId: id
+  }
+  ) {
+    id
+    firstName
+    email
+  }
+}
 
-* Configuration
+4.Or you cad delete Artist or Item:
+mutation {
+  deleteArtist(
+    input: {id: id}
+  ) {
+    id
+  }
+}
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+mutation {
+  deleteItem(
+    input: {id: id}
+  ) {
+    id
+  }
+}
